@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Share &amp; Repair</string>
+
+    <string-array name="accordion_sections">
+        <item>Share</item>
+        <item>Need repairs</item>
+        <item>Search</item>
+        <item>Feedback</item>
+        <item>Contact Us</item>
+    </string-array>
+
+    <integer-array name="accordion_visibility">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+    <string name="productcategory1">Electronics</string>
+    <string name="productcategory2">Automobile</string>
+    <string name="productcategory3">Furniture</string>
+    <string name="productcategory4">Kitchen Appliances</string>
+    <string name="productcategory5">Tools &amp; Productivity</string>
+    <string name="username">Name</string>
+    <string name="useremail">Email</string>
+    <string name="productcategory">Product Category</string>
+    <string name="productcomments">Comments</string>
+
+</resources>

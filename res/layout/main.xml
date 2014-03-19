@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:accordion="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <com.popofibo.sharerepairprototypemob.widget.AccordionView
+            android:id="@+id/accordion_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            accordion:header_layout_fold_button_id="@id/foldButton"
+            accordion:header_layout_id="@layout/accordion_header"
+            accordion:header_layout_label_id="@id/foldText"
+            accordion:section_bottom="@layout/accordion_footer"
+            accordion:section_container="@layout/accordion_section"
+            accordion:section_container_parent="@id/section_content"
+            accordion:section_headers="@array/accordion_sections"
+            accordion:section_visibility="@array/accordion_visibility"
+            android:background="#fff5f5f5"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share - Not implemented yet" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="2" >
+
+                <LinearLayout
+                    android:id="@+id/example_get_by_id"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@android:color/darker_gray"
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@+id/EditTextName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/username"
+                        android:inputType="textPersonName" >
+                    </EditText>
+
+                    <EditText
+                        android:id="@+id/EditTextEmail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/useremail"
+                        android:inputType="textEmailAddress" >
+                    </EditText>
+
+                    <Spinner
+                        android:id="@+id/SpinnerCategoryType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:entries="@array/productcategorytypelist"
+                        android:prompt="@string/productcategory" >
+                    </Spinner>
+
+                    <EditText
+                        android:id="@+id/EditTextCommentsBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/productcomments"
+                        android:inputType="textMultiLine"
+                        android:lines="5" >
+                    </EditText>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2" >
+
+                        <Button
+                            android:id="@+id/updateBtn"
+                            style="@style/btnStyleBreakerBay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="Update" >
+                        </Button>
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/startBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Capture" >
+                </Button>
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" >
+                </ImageView>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search - Not implemented yet" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RatingBar
+                    android:id="@+id/ratingBar1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="Contact us at - www.popofibo.com" />
+        </com.popofibo.sharerepairprototypemob.widget.AccordionView>
+    </ScrollView>
+
+</LinearLayout>

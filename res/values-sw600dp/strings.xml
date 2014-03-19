@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Share &amp; Repair</string>
+
+    <string-array name="accordion_sections">
+        <item>Share</item>
+        <item>Need repairs</item>
+        <item>Search</item>
+        <item>Feedback</item>
+        <item>Contact Us</item>
+    </string-array>
+
+    <integer-array name="accordion_visibility">
+        <item>0</item>
+        <item>1</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+
+</resources>
