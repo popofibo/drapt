@@ -13,7 +13,7 @@
 
     <integer-array name="accordion_visibility">
         <item>0</item>
-        <item>1</item>
+        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>

@@ -84,30 +84,32 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int header_solid=0x7f020007;
         public static final int header_solid_inner=0x7f020008;
         public static final int header_solid_outer=0x7f020009;
-        public static final int ic_launcher=0x7f02000a;
-        public static final int section=0x7f02000b;
-        public static final int section_border=0x7f02000c;
-        public static final int section_solid=0x7f02000d;
-        public static final int up=0x7f02000e;
+        public static final int ic_dialog_alert=0x7f02000a;
+        public static final int ic_launcher=0x7f02000b;
+        public static final int section=0x7f02000c;
+        public static final int section_border=0x7f02000d;
+        public static final int section_solid=0x7f02000e;
+        public static final int up=0x7f02000f;
     }
     public static final class id {
-        public static final int EditTextCommentsBody=0x7f08000c;
-        public static final int EditTextEmail=0x7f08000a;
-        public static final int EditTextName=0x7f080009;
-        public static final int SpinnerCategoryType=0x7f08000b;
+        public static final int EditTextCommentsBody=0x7f08000d;
+        public static final int EditTextEmail=0x7f08000b;
+        public static final int EditTextName=0x7f08000a;
+        public static final int SpinnerCategoryType=0x7f08000c;
         public static final int accordion_view=0x7f080007;
-        public static final int example_get_by_id=0x7f080008;
         public static final int foldButton=0x7f080001;
         public static final int foldText=0x7f080002;
-        public static final int img=0x7f08000f;
+        public static final int img=0x7f080010;
         public static final int item_detail=0x7f080006;
         public static final int item_detail_container=0x7f080004;
         public static final int item_list=0x7f080005;
         public static final int mainlayout=0x7f080000;
-        public static final int ratingBar1=0x7f080010;
+        public static final int ratingBar1=0x7f080011;
+        public static final int repair_linear_layout=0x7f080009;
+        public static final int repair_relative_layout=0x7f080008;
         public static final int section_content=0x7f080003;
-        public static final int startBtn=0x7f08000e;
-        public static final int updateBtn=0x7f08000d;
+        public static final int startBtn=0x7f08000f;
+        public static final int updateBtn=0x7f08000e;
     }
     public static final class layout {
         public static final int accordion_footer=0x7f030000;
@@ -161,24 +163,54 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
         
 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
     
 
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
+
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+        
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+    
+
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
         
          */
         public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
+ All customizations that are NOT specific to a particular API-level can go here. 
+ Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 

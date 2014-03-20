@@ -31,12 +31,13 @@
                 android:text="Share - Not implemented yet" />
 
             <RelativeLayout
+                android:id="@+id/repair_relative_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="2" >
 
                 <LinearLayout
-                    android:id="@+id/example_get_by_id"
+                    android:id="@+id/repair_linear_layout"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:background="@android:color/darker_gray"

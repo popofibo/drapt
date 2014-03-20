@@ -9,7 +9,9 @@ import com.popofibo.sharerepairprototypemob.utils.ShareandrepairUtil;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -17,9 +19,12 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,6 +45,7 @@ public class AccordionWidgetDemoActivity extends Activity {
 	private EditText productComments;
 	private String imagepath;
 	private byte[] image;
+	private Handler mHandler = new Handler(Looper.getMainLooper());
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +66,15 @@ public class AccordionWidgetDemoActivity extends Activity {
 			}
 		});
 
+		updateBtn.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				DbImageTask task = new DbImageTask();
+				ImageModel model = pushDataToModel();
+				task.execute(new ImageModel[] { model });
+			}
+		});
 	}
 
 	private ImageModel pushDataToModel() {
@@ -67,9 +82,10 @@ public class AccordionWidgetDemoActivity extends Activity {
 		model.setImageName(imagepath);
 		model.setImageSize(actualImage.getByteCount());
 		model.setImage(image);
-		model.setImageCategory((String) productCategory.getSelectedItem());
+		model.setProductCategory((String) productCategory.getSelectedItem());
 		model.setImageType(actualImage.getConfig().name());
 		model.setProductComments(productComments.getText().toString());
+		// model.setProductCategory(productCategory.getText().toString());
 		model.setUserName(username.getText().toString());
 		model.setUserEmail(userEmail.getText().toString());
 		model.setUserState("Not Implemented");
@@ -77,8 +93,6 @@ public class AccordionWidgetDemoActivity extends Activity {
 	}
 
 	public void startCamera() {
-		DbImageTask task = new DbImageTask();
-		task.execute(new String[] {});
 
 		String fileName = ShareandrepairUtil.assignFilename();
 		ContentValues values = new ContentValues();
@@ -103,20 +117,58 @@ public class AccordionWidgetDemoActivity extends Activity {
 		}
 	}
 
-	private class DbImageTask extends AsyncTask<String, Void, ImageModel> {
+	private class DbImageTask extends AsyncTask<ImageModel, Void, ImageModel> {
 
 		@Override
-		protected ImageModel doInBackground(String... params) {
-			ImageModel model = new ImageModel();
-			updateBtn.setOnClickListener(new View.OnClickListener() {
+		protected ImageModel doInBackground(ImageModel... models) {
+			ImageModel model = models[0];
+			final boolean isDataPushedToDb = ShareandrepairUtil
+					.insertDataToDb(model);
+			Log.d("TAGZIES", "Data inserted successfully -> "
+					+ isDataPushedToDb);
 
-				@Override
-				public void onClick(View arg0) {
-					ImageModel model = pushDataToModel();
-					boolean isDataPushedToDb = ShareandrepairUtil
-							.insertDataToDb(model);
-					Log.d("TAGZIES", "Data inserted successfully -> "
-							+ isDataPushedToDb);
+			mHandler.post(new Runnable() {
+				public void run() {
+					String alertTitle = "Failed";
+					String alertMessage = "Data failed to update";
+
+					if (isDataPushedToDb) {
+						alertTitle = "Data Updated";
+						alertMessage = "Data succesfully updated";
+					}
+					new AlertDialog.Builder(AccordionWidgetDemoActivity.this)
+							.setTitle(alertTitle)
+							.setMessage(alertMessage)
+							.setPositiveButton(android.R.string.yes,
+									new DialogInterface.OnClickListener() {
+										public void onClick(
+												DialogInterface dialog,
+												int which) {
+											if (isDataPushedToDb) {
+												Log.d("TAGZIES",
+														"Invalidating the parent view");
+												ViewGroup group = (ViewGroup) findViewById(R.id.repair_linear_layout);
+												Log.d("TAGZIES", "Child Count "
+														+ group.getChildCount());
+												for (int i = 0, count = group
+														.getChildCount(); i < count; ++i) {
+													View view = group
+															.getChildAt(i);
+													if (view instanceof EditText) {
+														Log.d("TAGZIES",
+																"Inside views");
+														((EditText) view)
+																.setText("");
+													}
+												}
+												AccordionWidgetDemoActivity.this
+														.recreate();
+												Log.d("TAGZIES",
+														"Invalidating the parent view - success");
+											}
+										}
+									}).setIcon(R.drawable.ic_dialog_alert)
+							.show();
 				}
 			});
 			return model;
