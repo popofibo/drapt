@@ -16,8 +16,8 @@ public class ShareandrepairUtil {
 		String url = "jdbc:mysql://sordid.db.6434967.hostedresource.com/";
 		String dbName = "sordid";
 		String driver = "com.mysql.jdbc.Driver";
-		String userName = "sordid";
-		String password = "Password!@3";
+		String userName = "xxxxx";
+		String password = "xxxxxxx";
 		try {
 			Class.forName(driver).newInstance();
 			Connection conn = DriverManager.getConnection(url + dbName,
